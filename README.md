@@ -1,16 +1,28 @@
-## Hi there 👋
+# 👋 Привет, я Александр!
 
-<!--
-**AlexFirst404/AlexFirst404** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+### 🚀 Веб-разработчик | Python | C | JavaScript | Bash | Linux  
 
-Here are some ideas to get you started:
+- 🔭 Разрабатываю веб-приложения и бэкенд-системы  
+- 🌱 Сейчас изучаю асинхронное программирование и низкоуровневые технологии  
+- 🎯 Люблю писать **оптимизированный, чистый код**  
+- 💬 Можно связаться со мной: tg: @AlexFirst_dev
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+---
+🛠 **Стек технологий:**  
+🚀 Python | C | JavaScript | Bash | Shell | HTML & CSS | Java (чуть-чуть)  
+🖥 Flask, Django, FastAPI | Node.js  
+📡 REST API | WebSockets | PostgreSQL, MySQL  
+🐧 Linux | Docker | Git | DevOps
+
+
+![Статистика GitHub](https://github-readme-stats.vercel.app/api?username=AlexFirst404&show_icons=true&theme=dark)
+
+---
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
+---
+
+![snake gif](https://github.com/ТВОЙ_НИК/ТВОЙ_НИК/blob/output/github-contribution-grid-snake.svg)
