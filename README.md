@@ -25,4 +25,4 @@
 
 ---
 
-![snake gif](https://github.com/ТВОЙ_НИК/ТВОЙ_НИК/blob/output/github-contribution-grid-snake.svg)
+![snake gif](https://github.com/AlexFirst404/AlexFirst404/blob/output/github-contribution-grid-snake.svg)
