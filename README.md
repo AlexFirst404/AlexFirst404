@@ -1,4 +1,8 @@
-# 👋 Привет, я Александр!
+# Hi bro👋
+
+<p align="center"><img src="https://readme-typing-svg.herokuapp.com?size=25&duration=3000&color=F7B93E&center=true&vCenter=true&width=600&lines=Привет%2C+я+%F0%9F%91%8B+AlexFirst!;Веб-разработчик+и+линуксоид;Люблю+Python%2C+C%2C+Bash;Изучаю+low-level+и+backend" /></p>
+
+---
 
 ### 🚀 Веб-разработчик | Python | C | JavaScript | Bash | Linux  
 
