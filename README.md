@@ -13,7 +13,7 @@
 
 ---
 🛠 **Стек технологий:**  
-🚀 Python | C | JavaScript | Bash | Shell | HTML & CSS | Java (чуть-чуть)  
+🚀 Python | C | JavaScript | Bash | Shell | HTML & CSS | Java
 🖥 Flask, Django, FastAPI | Node.js  
 📡 REST API | WebSockets | PostgreSQL, MySQL  
 🐧 Linux | Docker | Git | DevOps
