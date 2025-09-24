@@ -30,5 +30,6 @@
 ![Shell](https://img.shields.io/badge/Shell-4EAA25?style=for-the-badge&logo=windows-terminal&logoColor=white)
 ![Java ☕](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=coffee&logoColor=white)
 ![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![React](https://img.shields.io/badge/React-46a2f1?style=for-the-badge&logo=react&logoColor=white)
 
 ---
