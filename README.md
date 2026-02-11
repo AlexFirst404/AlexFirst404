@@ -19,8 +19,6 @@
 🐧 Linux | Docker | Git | DevOps
 
 
-![Статистика GitHub](https://github-readme-stats.vercel.app/api?username=AlexFirst404&show_icons=true&theme=dark)
-
 ---
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
