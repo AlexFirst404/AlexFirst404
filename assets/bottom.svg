@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 657" width="100%" role="img" aria-label="stats, activity, contacts"><defs><style>.mono{font-family:ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace}</style><linearGradient id="st_sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1e070c"/><stop offset="0.6" stop-color="#150509"/><stop offset="1" stop-color="#100407"/></linearGradient><linearGradient id="ac_ag" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1e070c"/><stop offset="0.6" stop-color="#150509"/><stop offset="1" stop-color="#100407"/></linearGradient>
+<linearGradient id="ac_fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e0143c" stop-opacity="0.35"/><stop offset="1" stop-color="#e0143c" stop-opacity="0.02"/></linearGradient>
+<linearGradient id="ft_fb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a0710"/><stop offset="1" stop-color="#0b0205"/></linearGradient>
+<pattern id="ft_fscan" width="3" height="3" patternUnits="userSpaceOnUse"><rect width="3" height="1" fill="#000" opacity="0.30"/></pattern>
+<clipPath id="ft_band"><rect x="0" y="52" width="1000" height="98"/></clipPath>
+<style>
+.mono{font-family:ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace}
+.s1{animation:s1 2.6s infinite steps(1)}
+.s2{animation:s2 3.4s infinite steps(1)}
+.fl{animation:fl 4s infinite steps(1)}
+.cur{animation:cur 1.05s steps(1) infinite}
+@keyframes s1{0%,70%,100%{transform:translateX(0)}72%{transform:translateX(-20px)}74%{transform:translateX(12px)}76%{transform:translateX(0)}}
+@keyframes s2{0%,82%,100%{transform:translateX(0)}84%{transform:translateX(24px)}86%{transform:translateX(-14px)}88%{transform:translateX(0)}}
+@keyframes fl{0%,60%,100%{opacity:0}62%{opacity:.75}64%{opacity:0}90%{opacity:.5}92%{opacity:0}}
+@keyframes cur{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.s1,.s2,.fl,.cur{animation:none}}
+</style>
+</defs><text class="mono" x="6" y="22" font-size="15" fill="#7a4a4f">alexfirst@404<tspan fill="#e0143c">:~$</tspan> stats --render</text><g transform="translate(0,34.0)"><rect x="0" y="0" width="860" height="200" rx="12" fill="url(#st_sg)"/>
+<rect x="0" y="0" width="5" height="200" rx="2" fill="#e0143c"/>
+<line x1="512" y1="22" x2="512" y2="178" stroke="#2a1015"/>
+<text x="26" y="40" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="14" fill="#e6cfd0"><tspan fill="#e0143c">◆ </tspan>combat_log · AlexFirst404</text>
+<text x="26" y="78" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="14" fill="#a98a8e">commits</text><text x="486" y="78" text-anchor="end" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="14" fill="#f2dede" font-weight="bold">827</text><line x1="26" y1="87" x2="486" y2="87" stroke="#2a1015" stroke-dasharray="2 4"/>
+<text x="26" y="108" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="14" fill="#a98a8e">pull requests</text><text x="486" y="108" text-anchor="end" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="14" fill="#f2dede" font-weight="bold">2</text><line x1="26" y1="117" x2="486" y2="117" stroke="#2a1015" stroke-dasharray="2 4"/>
+<text x="26" y="138" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="14" fill="#a98a8e">stars earned</text><text x="486" y="138" text-anchor="end" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="14" fill="#f2dede" font-weight="bold">28</text><line x1="26" y1="147" x2="486" y2="147" stroke="#2a1015" stroke-dasharray="2 4"/>
+<text x="26" y="168" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="14" fill="#a98a8e">repositories</text><text x="486" y="168" text-anchor="end" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="14" fill="#f2dede" font-weight="bold">44</text><line x1="26" y1="177" x2="486" y2="177" stroke="#2a1015" stroke-dasharray="2 4"/>
+<text x="536" y="40" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="14" fill="#e6cfd0"><tspan fill="#e0143c">◆ </tspan>contribution streak</text>
+<text x="686" y="102" text-anchor="middle" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="52" font-weight="bold" fill="#ff5a3c">3</text>
+<text x="686" y="124" text-anchor="middle" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="11" fill="#a98a8e" letter-spacing="2">CURRENT · DAYS</text>
+<text x="560" y="154" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="14" fill="#a98a8e">longest streak</text><text x="812" y="154" text-anchor="end" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="14" fill="#f2dede" font-weight="bold">9d</text><line x1="560" y1="163" x2="812" y2="163" stroke="#2a1015" stroke-dasharray="2 4"/>
+<text x="560" y="180" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="14" fill="#a98a8e">contributions (1y)</text><text x="812" y="180" text-anchor="end" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="14" fill="#f2dede" font-weight="bold">830</text><line x1="560" y1="189" x2="812" y2="189" stroke="#2a1015" stroke-dasharray="2 4"/></g><g transform="translate(0,250.0)"><rect x="0" y="0" width="860" height="180" rx="12" fill="url(#ac_ag)"/>
+<rect x="0" y="0" width="5" height="180" rx="2" fill="#e0143c"/>
+<text x="24" y="34" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="14" fill="#e6cfd0"><tspan fill="#e0143c">◆ </tspan>contribution activity · last year</text>
+<line x1="24" y1="150" x2="836" y2="150" stroke="#3a1a20"/>
+<path d="M24 150 L24.0 150.0 L39.6 150.0 L55.2 150.0 L70.8 150.0 L86.5 150.0 L102.1 150.0 L117.7 144.8 L133.3 149.1 L148.9 150.0 L164.5 150.0 L180.2 149.1 L195.8 148.3 L211.4 149.6 L227.0 150.0 L242.6 150.0 L258.2 150.0 L273.8 150.0 L289.5 150.0 L305.1 150.0 L320.7 150.0 L336.3 150.0 L351.9 150.0 L367.5 150.0 L383.2 150.0 L398.8 150.0 L414.4 150.0 L430.0 150.0 L445.6 150.0 L461.2 150.0 L476.8 150.0 L492.5 147.8 L508.1 150.0 L523.7 133.1 L539.3 141.3 L554.9 114.8 L570.5 137.8 L586.2 144.4 L601.8 146.1 L617.4 147.4 L633.0 150.0 L648.6 149.6 L664.2 148.3 L679.8 124.8 L695.5 141.3 L711.1 147.4 L726.7 124.4 L742.3 147.8 L757.9 148.7 L773.5 58.0 L789.2 127.0 L804.8 139.2 L820.4 117.0 L836.0 112.7 L836 150 Z" fill="url(#ac_fill)"/>
+<path d="M24.0 150.0 L39.6 150.0 L55.2 150.0 L70.8 150.0 L86.5 150.0 L102.1 150.0 L117.7 144.8 L133.3 149.1 L148.9 150.0 L164.5 150.0 L180.2 149.1 L195.8 148.3 L211.4 149.6 L227.0 150.0 L242.6 150.0 L258.2 150.0 L273.8 150.0 L289.5 150.0 L305.1 150.0 L320.7 150.0 L336.3 150.0 L351.9 150.0 L367.5 150.0 L383.2 150.0 L398.8 150.0 L414.4 150.0 L430.0 150.0 L445.6 150.0 L461.2 150.0 L476.8 150.0 L492.5 147.8 L508.1 150.0 L523.7 133.1 L539.3 141.3 L554.9 114.8 L570.5 137.8 L586.2 144.4 L601.8 146.1 L617.4 147.4 L633.0 150.0 L648.6 149.6 L664.2 148.3 L679.8 124.8 L695.5 141.3 L711.1 147.4 L726.7 124.4 L742.3 147.8 L757.9 148.7 L773.5 58.0 L789.2 127.0 L804.8 139.2 L820.4 117.0 L836.0 112.7 " fill="none" stroke="#e0143c" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="836.0" cy="112.7" r="4" fill="#ff5a3c"/>
+<text x="836" y="34" text-anchor="end" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="12" fill="#a98a8e">peak 212/wk</text></g><text class="mono" x="6" y="468" font-size="15" fill="#7a4a4f">alexfirst@404<tspan fill="#e0143c">:~$</tspan> contact --all</text><rect x="120.2" y="480" width="164.3" height="32" rx="8" fill="#160A0C" stroke="#3a1a20"/><text x="202.3" y="500.55" text-anchor="middle" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="13" font-weight="bold" fill="#ff5a3c">◈ undernetvpn.com</text><rect x="296.5" y="480" width="235.4" height="32" rx="8" fill="#e0143c" stroke="#e0143c"/><text x="414.2" y="500.55" text-anchor="middle" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="13" font-weight="bold" fill="#0a0506">◈ Telegram · @AlexFirst404</text><rect x="543.9" y="480" width="195.9" height="32" rx="8" fill="#160A0C" stroke="#3a1a20"/><text x="641.9" y="500.55" text-anchor="middle" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="13" font-weight="bold" fill="#e0143c">◈ Discord · alexfirst</text><g transform="translate(0,528.0) scale(0.86000)"><g>
+<rect class="s1" x="60" y="40" width="90" height="12" fill="#2a0710"/>
+<rect x="180" y="46" width="60" height="6" fill="#20060c"/>
+<rect class="s2" x="300" y="36" width="130" height="16" fill="#2a0710"/>
+<rect x="470" y="44" width="80" height="8" fill="#20060c"/>
+<rect class="s1" x="610" y="42" width="110" height="10" fill="#2a0710"/>
+<rect x="760" y="38" width="70" height="14" fill="#20060c"/>
+<rect x="862" y="46" width="120" height="6" fill="#20060c"/>
+<rect class="fl" x="300" y="34" width="130" height="2" fill="#ff2a3c"/>
+<rect class="fl" x="610" y="40" width="110" height="2" fill="#ff2a3c"/>
+</g>
+
+<rect x="0" y="52" width="1000" height="98" fill="url(#ft_fb)"/>
+
+<g clip-path="url(#ft_band)">
+<rect class="s1" x="0" y="72" width="1000" height="11" fill="#3a0c14"/>
+<rect class="s2" x="0" y="104" width="1000" height="8" fill="#4a0f1a"/>
+<rect class="s1" x="0" y="130" width="1000" height="5" fill="#2a0810"/>
+<rect class="fl" x="0" y="90" width="1000" height="2" fill="#ff2a3c"/>
+<rect class="fl" x="0" y="118" width="1000" height="2" fill="#00e6d6"/>
+</g>
+
+<rect x="0" y="52" width="1000" height="98" fill="url(#ft_fscan)"/>
+
+<text class="mono" x="978" y="134" text-anchor="end" font-size="72" font-weight="bold" fill="#e0143c" opacity="0.09">404</text>
+<text class="mono" x="24" y="92" font-size="15" fill="#7a4a4f">alexfirst@404:~$ <tspan fill="#e0143c">exit</tspan></text>
+<text class="mono" x="24" y="118" font-size="15" fill="#9a6a70">// signal lost — connection terminated <tspan class="cur" fill="#e0143c">&#9646;</tspan></text></g></svg>
