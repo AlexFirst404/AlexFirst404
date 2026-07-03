@@ -14,13 +14,13 @@
 
 </div>
 
-## `alexfirst@404:~$ cat whoami.md`
+<img src="assets/h-whoami.svg" width="100%" alt="alexfirst@404:~$ cat whoami.md" />
 
 > `>` Full-spectrum developer &amp; server operator. I ship **Android apps** (Java · Kotlin), **Telegram / Discord bots** (Python), **web apps** (React · TypeScript), **Minecraft mods &amp; plugins** (NeoForge · Paper), desktop tools in **C#**, and I run &amp; harden **Unix servers**.
 >
 > `>` Founder of **UnderNet VPN** — bypass tooling that actually works.
 
-## `alexfirst@404:~$ ls ./arsenal`
+<img src="assets/h-arsenal.svg" width="100%" alt="alexfirst@404:~$ ls ./arsenal" />
 
 **lang**
 <br>
@@ -64,7 +64,7 @@
 <img src="https://img.shields.io/badge/Docker-160A0C?style=for-the-badge&logo=docker&logoColor=E0143C" alt="Docker" />
 <img src="https://img.shields.io/badge/VPS_·_SSH-160A0C?style=for-the-badge&logo=linux&logoColor=E0143C" alt="VPS SSH" />
 
-## `alexfirst@404:~$ git log --oneline ./operations`
+<img src="assets/h-operations.svg" width="100%" alt="alexfirst@404:~$ git log --oneline ./operations" />
 
 <table>
 <tr>
@@ -85,7 +85,7 @@ Minecraft server panel (Vanilla / Paper / Purpur / Folia / Forge) — console, m
 </tr>
 </table>
 
-## `alexfirst@404:~$ ./stats --render`
+<img src="assets/h-stats.svg" width="100%" alt="alexfirst@404:~$ ./stats --render" />
 
 <div align="center">
 
@@ -95,7 +95,7 @@ Minecraft server panel (Vanilla / Paper / Purpur / Folia / Forge) — console, m
 
 </div>
 
-## `alexfirst@404:~$ ./contact --all`
+<img src="assets/h-contact.svg" width="100%" alt="alexfirst@404:~$ ./contact --all" />
 
 <div align="center">
 
