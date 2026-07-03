@@ -16,53 +16,13 @@
 
 <img src="assets/h-whoami.svg" width="100%" alt="alexfirst@404:~$ cat whoami.md" />
 
-> `>` Full-spectrum developer &amp; server operator. I ship **Android apps** (Java · Kotlin), **Telegram / Discord bots** (Python), **web apps** (React · TypeScript), **Minecraft mods &amp; plugins** (NeoForge · Paper), desktop tools in **C#**, and I run &amp; harden **Unix servers**.
+> `>` Full-spectrum developer &amp; server operator. I ship **Android apps** (Java · Kotlin), **Telegram / Discord bots** (Python), **web apps** (React · TypeScript), **Minecraft mods &amp; plugins** (NeoForge · Fabric · Paper), desktop tools in **C#**, and I run &amp; harden **Unix servers**.
 >
 > `>` Founder of **UnderNet VPN** — bypass tooling that actually works.
 
 <img src="assets/h-arsenal.svg" width="100%" alt="alexfirst@404:~$ ls ./arsenal" />
 
-**lang**
-<br>
-<img src="https://img.shields.io/badge/Java-160A0C?style=for-the-badge&logo=openjdk&logoColor=E0143C" alt="Java" />
-<img src="https://img.shields.io/badge/Kotlin-160A0C?style=for-the-badge&logo=kotlin&logoColor=E0143C" alt="Kotlin" />
-<img src="https://img.shields.io/badge/Python-160A0C?style=for-the-badge&logo=python&logoColor=E0143C" alt="Python" />
-<img src="https://img.shields.io/badge/JavaScript-160A0C?style=for-the-badge&logo=javascript&logoColor=E0143C" alt="JavaScript" />
-<img src="https://img.shields.io/badge/TypeScript-160A0C?style=for-the-badge&logo=typescript&logoColor=E0143C" alt="TypeScript" />
-<img src="https://img.shields.io/badge/C%23-160A0C?style=for-the-badge&logo=csharp&logoColor=E0143C" alt="C#" />
-<img src="https://img.shields.io/badge/Bash-160A0C?style=for-the-badge&logo=gnubash&logoColor=E0143C" alt="Bash" />
-
-**mobile**
-<br>
-<img src="https://img.shields.io/badge/Android_SDK-160A0C?style=for-the-badge&logo=android&logoColor=E0143C" alt="Android SDK" />
-<img src="https://img.shields.io/badge/Jetpack_Compose-160A0C?style=for-the-badge&logo=jetpackcompose&logoColor=E0143C" alt="Jetpack Compose" />
-<img src="https://img.shields.io/badge/Gradle-160A0C?style=for-the-badge&logo=gradle&logoColor=E0143C" alt="Gradle" />
-
-**web**
-<br>
-<img src="https://img.shields.io/badge/React-160A0C?style=for-the-badge&logo=react&logoColor=E0143C" alt="React" />
-<img src="https://img.shields.io/badge/Node.js-160A0C?style=for-the-badge&logo=nodedotjs&logoColor=E0143C" alt="Node.js" />
-<img src="https://img.shields.io/badge/SCSS-160A0C?style=for-the-badge&logo=sass&logoColor=E0143C" alt="SCSS" />
-<img src="https://img.shields.io/badge/HTML5-160A0C?style=for-the-badge&logo=html5&logoColor=E0143C" alt="HTML5" />
-
-**bots**
-<br>
-<img src="https://img.shields.io/badge/Telegram_Bot_API-160A0C?style=for-the-badge&logo=telegram&logoColor=E0143C" alt="Telegram Bot API" />
-<img src="https://img.shields.io/badge/discord.py-160A0C?style=for-the-badge&logo=discord&logoColor=E0143C" alt="discord.py" />
-<img src="https://img.shields.io/badge/aiogram-160A0C?style=for-the-badge&logo=python&logoColor=E0143C" alt="aiogram" />
-
-**game**
-<br>
-<img src="https://img.shields.io/badge/NeoForge-160A0C?style=for-the-badge&logoColor=E0143C" alt="NeoForge" />
-<img src="https://img.shields.io/badge/Paper_/_Spigot-160A0C?style=for-the-badge&logoColor=E0143C" alt="Paper / Spigot" />
-<img src="https://img.shields.io/badge/Blockbench-160A0C?style=for-the-badge&logoColor=E0143C" alt="Blockbench" />
-
-**ops**
-<br>
-<img src="https://img.shields.io/badge/Arch_Linux-160A0C?style=for-the-badge&logo=archlinux&logoColor=E0143C" alt="Arch Linux" />
-<img src="https://img.shields.io/badge/Hyprland-160A0C?style=for-the-badge&logo=hyprland&logoColor=E0143C" alt="Hyprland" />
-<img src="https://img.shields.io/badge/Docker-160A0C?style=for-the-badge&logo=docker&logoColor=E0143C" alt="Docker" />
-<img src="https://img.shields.io/badge/VPS_·_SSH-160A0C?style=for-the-badge&logo=linux&logoColor=E0143C" alt="VPS SSH" />
+<img src="assets/arsenal.svg" width="100%" alt="arsenal: lang, mobile, web, bots, game, ops" />
 
 <img src="assets/h-operations.svg" width="100%" alt="alexfirst@404:~$ git log --oneline ./operations" />
 
@@ -101,7 +61,6 @@ Minecraft server panel (Vanilla / Paper / Purpur / Folia / Forge) — console, m
 
 <a href="https://undernetvpn.com"><img src="https://img.shields.io/badge/undernetvpn.com-160A0C?style=for-the-badge&logo=wireguard&logoColor=FF5A3C" alt="UnderNet VPN" /></a>
 <a href="https://t.me/AlexFirst404"><img src="https://img.shields.io/badge/Telegram-@AlexFirst404-e0143c?style=for-the-badge&logo=telegram&logoColor=white&labelColor=0a0506" alt="Telegram" /></a>
-<a href="mailto:alextorx2020@gmail.com"><img src="https://img.shields.io/badge/Email-8b0a20?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0a0506" alt="Email" /></a>
 <img src="https://img.shields.io/badge/Discord-alexfirst-160A0C?style=for-the-badge&logo=discord&logoColor=E0143C" alt="Discord" />
 
 </div>
