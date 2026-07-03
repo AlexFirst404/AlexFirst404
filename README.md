@@ -4,8 +4,6 @@
 
 </div>
 
-<sub><code>alexfirst@404:~$ git log --oneline ./operations</code></sub>
-
 <table>
 <tr>
 <td width="80" align="center"><img src="assets/undernet-logo.png" width="60" alt="UnderNet" /></td>
