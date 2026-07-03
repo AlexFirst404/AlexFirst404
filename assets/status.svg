@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 50" width="100%" role="img" aria-label="class Agent, level 80, clearance RED, status online">
+<defs><style>
+.mono{font-family:ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace}
+.k{font-size:10px;letter-spacing:2px;fill:#7a4a4f}
+.v{font-size:16px;fill:#f2dede}
+.pulse{animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.pulse{animation:none}}
+</style></defs>
+<rect x="0" y="2" width="720" height="46" rx="10" fill="#140a0c" stroke="#2a1015"/>
+<rect x="0" y="2" width="4" height="46" rx="2" fill="#e0143c"/>
+<line x1="180" y1="12" x2="180" y2="38" stroke="#2a1015"/>
+<line x1="360" y1="12" x2="360" y2="38" stroke="#2a1015"/>
+<line x1="540" y1="12" x2="540" y2="38" stroke="#2a1015"/>
+<text class="mono k" x="24" y="21">CLASS</text>
+<text class="mono v" x="24" y="39"><tspan fill="#e0143c">◈ </tspan>Agent</text>
+<text class="mono k" x="204" y="21">LEVEL</text>
+<text class="mono v" x="204" y="39">80</text>
+<text class="mono k" x="384" y="21">CLEARANCE</text>
+<text class="mono v" x="384" y="39" fill="#ff5a3c">RED</text>
+<text class="mono k" x="564" y="21">STATUS</text>
+<text class="mono v" x="564" y="39"><tspan class="pulse" fill="#3ddc84">● </tspan>online</text>
+</svg>

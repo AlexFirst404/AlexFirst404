@@ -1,24 +1,16 @@
 <div align="center">
 
-<img src="assets/hero.svg" width="100%" alt="AlexFirst404 — developer not found" />
+<img src="assets/hero.svg" width="100%" alt="AlexFirst404" />
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=800&color=ECDADB&center=true&vCenter=true&width=720&height=42&lines=%3E+Android+%C2%B7+bots+%C2%B7+web+%C2%B7+Minecraft+%C2%B7+C%23;%3E+founder+%40+UnderNet+VPN;%3E+Unix+operator+%2F%2F+clearance%3A+RED;%3E+404+%E2%80%94+developer+not+found" alt="" />
+<img src="assets/type.svg" width="100%" alt="Android · bots · web · Minecraft · C# — founder of UnderNet VPN — Unix operator" />
 
-<br>
-
-<img src="https://img.shields.io/badge/class-Agent-e0143c?style=flat-square&labelColor=0a0506" alt="" />
-<img src="https://img.shields.io/badge/level-80-8b0a20?style=flat-square&labelColor=0a0506" alt="" />
-<img src="https://img.shields.io/badge/clearance-RED-ff2a3c?style=flat-square&labelColor=0a0506" alt="" />
-<img src="https://img.shields.io/badge/status-online-e0143c?style=flat-square&labelColor=0a0506" alt="" />
-<img src="https://komarev.com/ghpvc/?username=AlexFirst404&color=8b0a20&style=flat-square&label=visitors" alt="" />
+<img src="assets/status.svg" width="100%" alt="class Agent · level 80 · clearance RED · status online" />
 
 </div>
 
 <img src="assets/h-whoami.svg" width="100%" alt="alexfirst@404:~$ cat whoami.md" />
 
-> `>` Full-spectrum developer &amp; server operator. I ship **Android apps** (Java · Kotlin), **Telegram / Discord bots** (Python), **web apps** (React · TypeScript), **Minecraft mods &amp; plugins** (NeoForge · Fabric · Paper), desktop tools in **C#**, and I run &amp; harden **Unix servers**.
->
-> `>` Founder of **UnderNet VPN** — bypass tooling that actually works.
+<img src="assets/whoami.svg" width="100%" alt="whoami — full-spectrum developer and server operator, founder of UnderNet VPN" />
 
 <img src="assets/h-arsenal.svg" width="100%" alt="alexfirst@404:~$ ls ./arsenal" />
 
@@ -41,9 +33,9 @@ Anti-censorship VPN — VLESS / Trojan / WS auto-deploy, desktop &amp; mobile cl
 
 <div align="center">
 
-<img width="100%" src="https://streak-stats.demolab.com?user=AlexFirst404&hide_border=true&background=0A0506&stroke=3A1A20&ring=E0143C&fire=FF5A3C&currStreakLabel=E0143C&currStreakNum=ECDADB&sideLabels=ECDADB&sideNums=ECDADB&dates=6F545A&excludeDaysLabel=6F545A" alt="streak" />
+<img width="100%" src="assets/stats.svg" alt="stats — commits, pull requests, stars, repositories, contribution streak" />
 
-<img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=AlexFirst404&bg_color=0a0506&color=ecdadb&line=e0143c&point=ff5a3c&area=true&area_color=8b0a20&title_color=e0143c&hide_border=true&custom_title=contribution%20activity" alt="contribution activity" />
+<img width="100%" src="assets/activity.svg" alt="contribution activity graph — last year" />
 
 </div>
 

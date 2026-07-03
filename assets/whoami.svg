@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 186" width="100%" role="img" aria-label="whoami: full-spectrum developer and server operator, founder of UnderNet VPN">
+<defs><linearGradient id="wg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1e070c"/><stop offset="0.6" stop-color="#150509"/><stop offset="1" stop-color="#100407"/></linearGradient>
+<style>.mono{font-family:ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace}</style></defs>
+<rect x="0" y="0" width="860" height="186" rx="12" fill="url(#wg)"/>
+<rect x="0" y="0" width="5" height="186" rx="2" fill="#e0143c"/>
+<text class="mono" font-size="15" fill="#b89a9e">
+<tspan x="26" y="42"><tspan fill="#e0143c">&gt;</tspan> Full-spectrum developer &amp; server operator. I ship <tspan font-weight="bold" fill="#f2dede">Android apps</tspan> (Java · Kotlin),</tspan>
+<tspan x="42" y="69">Telegram / Discord bots (Python), web apps (React · TypeScript),</tspan>
+<tspan x="42" y="96">Minecraft mods &amp; plugins (NeoForge · Fabric · Paper), desktop tools in C#,</tspan>
+<tspan x="42" y="123">and I run &amp; harden Unix servers.</tspan>
+<tspan x="26" y="162"><tspan fill="#e0143c">&gt;</tspan> Founder of <tspan font-weight="bold" fill="#e0143c">UnderNet VPN</tspan> — bypass tooling that actually works.</tspan>
+</text>
+</svg>

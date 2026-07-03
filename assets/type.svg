@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 44" width="100%" role="img" aria-label="Android, bots, web, Minecraft, C#; founder of UnderNet VPN; Unix operator">
+<defs><style>
+.mono{font-family:ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace}
+.ln{opacity:0}
+.l1{animation:l1 9s infinite}
+.l2{animation:l2 9s infinite}
+.l3{animation:l3 9s infinite}
+.cur{animation:cur 1.05s steps(1) infinite}
+@keyframes l1{0%{opacity:0}2%{opacity:1}30%{opacity:1}33%{opacity:0}100%{opacity:0}}
+@keyframes l2{0%,33%{opacity:0}35%{opacity:1}63%{opacity:1}66%{opacity:0}100%{opacity:0}}
+@keyframes l3{0%,66%{opacity:0}68%{opacity:1}96%{opacity:1}98%{opacity:0}100%{opacity:0}}
+@keyframes cur{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.ln{opacity:1}.l2,.l3{display:none}.cur{animation:none}}
+</style></defs>
+<text class="mono ln l1" x="360" y="28" text-anchor="middle" font-size="20" fill="#ecdadb"><tspan fill="#e0143c">&gt; </tspan>Android · bots · web · Minecraft · C#<tspan class="cur" fill="#e0143c"> ▋</tspan></text>
+<text class="mono ln l2" x="360" y="28" text-anchor="middle" font-size="20" fill="#ecdadb"><tspan fill="#e0143c">&gt; </tspan>founder @ UnderNet VPN<tspan class="cur" fill="#e0143c"> ▋</tspan></text>
+<text class="mono ln l3" x="360" y="28" text-anchor="middle" font-size="20" fill="#ecdadb"><tspan fill="#e0143c">&gt; </tspan>Unix operator // clearance: RED<tspan class="cur" fill="#e0143c"> ▋</tspan></text>
+</svg>
