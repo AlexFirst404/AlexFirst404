@@ -1,8 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2a0a12,45:8b0a20,100:e0143c&height=170&section=header&animation=fadeIn" width="100%" alt="" />
-
-<img src="https://readme-typing-svg.demolab.com?font=Pirata+One&size=58&pause=2200&color=E0143C&center=true&vCenter=true&width=560&height=100&lines=AlexFirst404" alt="AlexFirst404" />
+<img src="assets/hero.svg" width="100%" alt="AlexFirst404 — developer not found" />
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=800&color=ECDADB&center=true&vCenter=true&width=720&height=42&lines=%3E+Android+%C2%B7+bots+%C2%B7+web+%C2%B7+Minecraft+%C2%B7+C%23;%3E+founder+%40+UnderNet+VPN;%3E+Unix+operator+%2F%2F+clearance%3A+RED;%3E+404+%E2%80%94+developer+not+found" alt="" />
 
