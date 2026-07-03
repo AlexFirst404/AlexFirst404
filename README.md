@@ -91,10 +91,9 @@ Minecraft server panel (Vanilla / Paper / Purpur / Folia / Forge) — console, m
 
 <div align="center">
 
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=AlexFirst404&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&rank_icon=github&title_color=E0143C&icon_color=FF5A3C&text_color=ECDADB&bg_color=0A0506" alt="stats" />
-<img height="170" src="https://github-readme-streak-stats.herokuapp.com?user=AlexFirst404&hide_border=true&background=0A0506&stroke=3A1A20&ring=E0143C&fire=FF5A3C&currStreakLabel=E0143C&currStreakNum=ECDADB&sideLabels=ECDADB&sideNums=ECDADB&dates=6F545A&excludeDaysLabel=6F545A" alt="streak" />
+<img src="https://streak-stats.demolab.com?user=AlexFirst404&hide_border=true&background=0A0506&stroke=3A1A20&ring=E0143C&fire=FF5A3C&currStreakLabel=E0143C&currStreakNum=ECDADB&sideLabels=ECDADB&sideNums=ECDADB&dates=6F545A&excludeDaysLabel=6F545A" alt="streak" />
 
-<img src="https://github-profile-trophy.vercel.app/?username=AlexFirst404&theme=darkhub&no-frame=true&no-bg=true&margin-w=6&column=6" alt="trophies" />
+<img width="98%" src="https://github-readme-activity-graph.vercel.app/graph?username=AlexFirst404&bg_color=0a0506&color=ecdadb&line=e0143c&point=ff5a3c&area=true&area_color=8b0a20&title_color=e0143c&hide_border=true&custom_title=contribution%20activity" alt="contribution activity" />
 
 </div>
 
