@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 150" width="100%" role="img" aria-label="signal lost — connection terminated">
+<defs>
+<linearGradient id="fb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a0710"/><stop offset="1" stop-color="#0b0205"/></linearGradient>
+<pattern id="fscan" width="3" height="3" patternUnits="userSpaceOnUse"><rect width="3" height="1" fill="#000" opacity="0.30"/></pattern>
+<clipPath id="band"><rect x="0" y="52" width="1000" height="98"/></clipPath>
+<style>
+.mono{font-family:ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace}
+.s1{animation:s1 2.6s infinite steps(1)}
+.s2{animation:s2 3.4s infinite steps(1)}
+.fl{animation:fl 4s infinite steps(1)}
+.cur{animation:cur 1.05s steps(1) infinite}
+@keyframes s1{0%,70%,100%{transform:translateX(0)}72%{transform:translateX(-20px)}74%{transform:translateX(12px)}76%{transform:translateX(0)}}
+@keyframes s2{0%,82%,100%{transform:translateX(0)}84%{transform:translateX(24px)}86%{transform:translateX(-14px)}88%{transform:translateX(0)}}
+@keyframes fl{0%,60%,100%{opacity:0}62%{opacity:.75}64%{opacity:0}90%{opacity:.5}92%{opacity:0}}
+@keyframes cur{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.s1,.s2,.fl,.cur{animation:none}}
+</style>
+</defs>
+
+<g>
+<rect class="s1" x="60" y="40" width="90" height="12" fill="#2a0710"/>
+<rect x="180" y="46" width="60" height="6" fill="#20060c"/>
+<rect class="s2" x="300" y="36" width="130" height="16" fill="#2a0710"/>
+<rect x="470" y="44" width="80" height="8" fill="#20060c"/>
+<rect class="s1" x="610" y="42" width="110" height="10" fill="#2a0710"/>
+<rect x="760" y="38" width="70" height="14" fill="#20060c"/>
+<rect x="862" y="46" width="120" height="6" fill="#20060c"/>
+<rect class="fl" x="300" y="34" width="130" height="2" fill="#ff2a3c"/>
+<rect class="fl" x="610" y="40" width="110" height="2" fill="#ff2a3c"/>
+</g>
+
+<rect x="0" y="52" width="1000" height="98" fill="url(#fb)"/>
+
+<g clip-path="url(#band)">
+<rect class="s1" x="0" y="72" width="1000" height="11" fill="#3a0c14"/>
+<rect class="s2" x="0" y="104" width="1000" height="8" fill="#4a0f1a"/>
+<rect class="s1" x="0" y="130" width="1000" height="5" fill="#2a0810"/>
+<rect class="fl" x="0" y="90" width="1000" height="2" fill="#ff2a3c"/>
+<rect class="fl" x="0" y="118" width="1000" height="2" fill="#00e6d6"/>
+</g>
+
+<rect x="0" y="52" width="1000" height="98" fill="url(#fscan)"/>
+
+<text class="mono" x="978" y="134" text-anchor="end" font-size="72" font-weight="bold" fill="#e0143c" opacity="0.09">404</text>
+<text class="mono" x="24" y="92" font-size="15" fill="#7a4a4f">alexfirst@404:~$ <tspan fill="#e0143c">exit</tspan></text>
+<text class="mono" x="24" y="118" font-size="15" fill="#9a6a70">// signal lost — connection terminated <tspan class="cur" fill="#e0143c">&#9646;</tspan></text>
+</svg>

@@ -30,7 +30,7 @@
 <tr>
 <td width="80" align="center"><img src="assets/undernet-logo.png" width="60" alt="UnderNet" /></td>
 <td>
-<b><a href="https://undernetvpn.com">UnderNet VPN</a></b>&nbsp;&nbsp;<img src="https://img.shields.io/badge/FLAGSHIP-ff5a3c?style=flat-square&labelColor=0a0506" alt="" />&nbsp;<sub>TypeScript · Kotlin · Shell</sub>
+<b><a href="https://undernetvpn.com">UnderNet VPN</a></b>
 <br>
 Anti-censorship VPN — VLESS / Trojan / WS auto-deploy, desktop &amp; mobile clients. → <a href="https://undernetvpn.com">undernetvpn.com</a>
 </td>
@@ -41,9 +41,9 @@ Anti-censorship VPN — VLESS / Trojan / WS auto-deploy, desktop &amp; mobile cl
 
 <div align="center">
 
-<img src="https://streak-stats.demolab.com?user=AlexFirst404&hide_border=true&background=0A0506&stroke=3A1A20&ring=E0143C&fire=FF5A3C&currStreakLabel=E0143C&currStreakNum=ECDADB&sideLabels=ECDADB&sideNums=ECDADB&dates=6F545A&excludeDaysLabel=6F545A" alt="streak" />
+<img width="100%" src="https://streak-stats.demolab.com?user=AlexFirst404&hide_border=true&background=0A0506&stroke=3A1A20&ring=E0143C&fire=FF5A3C&currStreakLabel=E0143C&currStreakNum=ECDADB&sideLabels=ECDADB&sideNums=ECDADB&dates=6F545A&excludeDaysLabel=6F545A" alt="streak" />
 
-<img width="98%" src="https://github-readme-activity-graph.vercel.app/graph?username=AlexFirst404&bg_color=0a0506&color=ecdadb&line=e0143c&point=ff5a3c&area=true&area_color=8b0a20&title_color=e0143c&hide_border=true&custom_title=contribution%20activity" alt="contribution activity" />
+<img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=AlexFirst404&bg_color=0a0506&color=ecdadb&line=e0143c&point=ff5a3c&area=true&area_color=8b0a20&title_color=e0143c&hide_border=true&custom_title=contribution%20activity" alt="contribution activity" />
 
 </div>
 
@@ -57,4 +57,4 @@ Anti-censorship VPN — VLESS / Trojan / WS auto-deploy, desktop &amp; mobile cl
 
 </div>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:e0143c,55:8b0a20,100:2a0a12&height=120&section=footer" width="100%" alt="" />
+<img src="assets/footer.svg" width="100%" alt="signal lost — connection terminated" />
