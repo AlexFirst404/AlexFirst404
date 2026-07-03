@@ -28,19 +28,11 @@
 
 <table>
 <tr>
-<td width="72" align="center"><img src="assets/undernet-shield.svg" width="52" alt="UnderNet" /></td>
+<td width="80" align="center"><img src="assets/undernet-logo.png" width="60" alt="UnderNet" /></td>
 <td>
 <b><a href="https://undernetvpn.com">UnderNet VPN</a></b>&nbsp;&nbsp;<img src="https://img.shields.io/badge/FLAGSHIP-ff5a3c?style=flat-square&labelColor=0a0506" alt="" />&nbsp;<sub>TypeScript · Kotlin · Shell</sub>
 <br>
 Anti-censorship VPN — VLESS / Trojan / WS auto-deploy, desktop &amp; mobile clients. → <a href="https://undernetvpn.com">undernetvpn.com</a>
-</td>
-</tr>
-<tr>
-<td width="72" align="center"><samp>▤</samp></td>
-<td>
-<b><a href="https://github.com/AlexFirst404/CONTROLGUI">CONTROLGUI</a></b>&nbsp;&nbsp;<sub>JavaScript · Node.js</sub>
-<br>
-Minecraft server panel (Vanilla / Paper / Purpur / Folia / Forge) — console, monitoring, file manager, zero deps.
 </td>
 </tr>
 </table>

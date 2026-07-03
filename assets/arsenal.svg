@@ -149,4 +149,9 @@
 <circle cx="605.5" cy="326" r="3" fill="#e0143c"/>
 <text x="614.5" y="331.25" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="15" fill="#e6cfd0">SFTP</text>
 </g>
+<g>
+<rect x="670.1" y="311" width="67.6" height="30" rx="7" fill="#17090c" stroke="#3a1a20" stroke-width="1"/>
+<circle cx="681.1" cy="326" r="3" fill="#e0143c"/>
+<text x="690.1" y="331.25" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="15" fill="#e6cfd0">Bash</text>
+</g>
 </svg>

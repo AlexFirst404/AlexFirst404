@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100" height="120" role="img" aria-label="UnderNet VPN">
-  <path d="M50 6 L90 20 Q95 22 95 42 L95 62 Q95 93 50 115 Q5 93 5 62 L5 42 Q5 22 10 20 Z" fill="none" stroke="#e0143c" stroke-width="3"/>
-  <path d="M50 16 L83 28 Q86 30 86 44 L86 62 Q86 86 50 104 Q14 86 14 62 L14 44 Q14 30 17 28 Z" fill="none" stroke="#e0143c" stroke-width="2" opacity="0.5"/>
-  <path d="M37 42 L37 68 Q37 82 50 82 Q63 82 63 68 L63 42" fill="none" stroke="#ff5a3c" stroke-width="4.5" stroke-linecap="round"/>
-  <path d="M63 65 Q69 76 58 85" fill="none" stroke="#ff5a3c" stroke-width="4.5" stroke-linecap="round"/>
-</svg>
