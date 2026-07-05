@@ -1,0 +1,45 @@
+name: refresh stats
+
+on:
+  schedule:
+    - cron: '17 5 * * *'   # daily ~05:17 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-stats
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      STATS_TOKEN: ${{ secrets.STATS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Guard — require STATS_TOKEN
+        run: |
+          if [ -z "$STATS_TOKEN" ]; then
+            echo "::warning::STATS_TOKEN secret is not set — skipping so public-only numbers don't overwrite the current stats. Add a PAT secret named STATS_TOKEN to enable auto-refresh."
+          fi
+
+      - name: Rebuild and commit bottom.svg
+        if: env.STATS_TOKEN != ''
+        run: |
+          node build/stats.js
+          if git diff --quiet -- assets/bottom.svg; then
+            echo "No change in stats."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add assets/bottom.svg
+            git commit -m "chore: refresh contribution stats [skip ci]"
+            git push
+          fi
