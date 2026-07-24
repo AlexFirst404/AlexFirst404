@@ -73,8 +73,9 @@ function buildBottom(d) {
   c += `<text class="mono" x="${rx}" y="${y + 10}" font-size="13" fill="#e6cfd0"><tspan fill="#e0143c">◆ </tspan>contribution streak</text>`;
   c += `<g transform="translate(${(fcx - 12 * fs2).toFixed(1)},${y + 12}) scale(${fs2})"><g class="flame">`;
   c += `<path d="M12 2 C15 8 18 10 18 15 A6 6 0 0 1 6 15 C6 11 9 9 9.5 6 C10.5 8.5 12 8 12 2 Z" fill="url(#flameg)"/>`;
+  c += `<path d="M12 8 C13.5 11 15 12.5 15 15 A3 3 0 0 1 9 15 C9 13 10.5 12 11 10 C11.5 11.5 12 11 12 8 Z" fill="#ffe0b0" opacity="0.9"/>`;
   c += `</g></g>`;
-  c += `<text class="mono" x="${fcx}" y="${y + 98}" text-anchor="middle" font-size="40" font-weight="bold" fill="#fff4e8" stroke="#6a0c14" stroke-width="1.4" paint-order="stroke">${cur}</text>`;
+  c += `<text class="mono" x="${fcx}" y="${y + 98}" text-anchor="middle" font-size="40" font-weight="bold" fill="#1a0508">${cur}</text>`;
   c += `<text class="mono" x="${fcx}" y="${y + 128}" text-anchor="middle" font-size="10" fill="#a98a8e" letter-spacing="2">CURRENT · DAYS</text>`;
   c += row(rx, rw, y + 148, 'longest streak', lon + 'd');
   c += row(rx, rw, y + 170, 'contributions (1y)', nf(contrib));
