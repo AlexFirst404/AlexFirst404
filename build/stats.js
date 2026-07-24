@@ -28,11 +28,13 @@ const CSS = `
 .mono{font-family:${FF}}
 .cur{animation:cur 1.05s steps(1) infinite}
 .gb{opacity:0}.g1{animation:g1 8.5s infinite steps(1)}.g2{animation:g2 11s infinite steps(1)}.g3{animation:g3 13s infinite steps(1)}
+.flame{transform-origin:12px 21px;animation:flick 1.7s ease-in-out infinite}
 @keyframes cur{50%{opacity:0}}
+@keyframes flick{0%,100%{transform:scaleY(1) scaleX(1)}45%{transform:scaleY(1.09) scaleX(0.95)}70%{transform:scaleY(0.97) scaleX(1.03)}}
 @keyframes g1{0%,92%,100%{opacity:0;transform:translateY(30px)}93%{opacity:.45;transform:translateY(120px)}94%{opacity:0}}
 @keyframes g2{0%,88%,100%{opacity:0;transform:translateY(200px)}89%{opacity:.4;transform:translateY(80px)}90%{opacity:0}}
 @keyframes g3{0%,95%,100%{opacity:0;transform:translateY(260px)}96%{opacity:.35;transform:translateY(300px)}97%{opacity:0}}
-@media (prefers-reduced-motion:reduce){.cur,.g1,.g2,.g3{animation:none}.gb{opacity:0}}`;
+@media (prefers-reduced-motion:reduce){.cur,.g1,.g2,.g3,.flame{animation:none}.gb{opacity:0}}`;
 
 function sep(label, y) {
   const cy = y - 4, xL = 16, xR = W - 16, cx = W / 2;
@@ -60,18 +62,23 @@ function buildBottom(d) {
   let c = '', y = 30;
   c += sep('stats', y); y += 22;
   const midX = 470;
-  c += `<line x1="${midX}" y1="${y - 4}" x2="${midX}" y2="${y + 116}" stroke="#2a1015"/>`;
+  c += `<line x1="${midX}" y1="${y - 4}" x2="${midX}" y2="${y + 148}" stroke="#2a1015"/>`;
   c += `<text class="mono" x="${PADX}" y="${y + 10}" font-size="13" fill="#e6cfd0"><tspan fill="#e0143c">◆ </tspan>combat_log · AlexFirst404</text>`;
   c += row(PADX, midX - PADX - 20, y + 40, 'commits', nf(commits));
   c += row(PADX, midX - PADX - 20, y + 66, 'pull requests', nf(prs));
   c += row(PADX, midX - PADX - 20, y + 92, 'stars earned', nf(stars));
   c += row(PADX, midX - PADX - 20, y + 118, 'repositories', nf(repos));
-  const rx = midX + 30, rw = W - PADX - rx;
+  const rx = midX + 30, rw = W - PADX - rx, fcx = rx + rw / 2;
+  c += `<defs><linearGradient id="flameg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9a4d"/><stop offset="0.55" stop-color="#ff4d2e"/><stop offset="1" stop-color="#d01028"/></linearGradient></defs>`;
   c += `<text class="mono" x="${rx}" y="${y + 10}" font-size="13" fill="#e6cfd0"><tspan fill="#e0143c">◆ </tspan>contribution streak</text>`;
-  c += `<text class="mono" x="${rx + rw / 2}" y="${y + 62}" text-anchor="middle" font-size="46" font-weight="bold" fill="#ff5a3c">${cur}</text>`;
-  c += `<text class="mono" x="${rx + rw / 2}" y="${y + 82}" text-anchor="middle" font-size="10" fill="#a98a8e" letter-spacing="2">CURRENT · DAYS</text>`;
-  c += row(rx, rw, y + 110, 'longest streak', lon + 'd');
-  c += row(rx, rw, y + 132, 'contributions (1y)', nf(contrib));
+  c += `<text class="mono" x="${fcx}" y="${y + 44}" text-anchor="middle" font-size="38" font-weight="bold" fill="#ff5a3c">${cur}</text>`;
+  c += `<g transform="translate(${(fcx - 15).toFixed(1)},${y + 48}) scale(1.25)"><g class="flame">`;
+  c += `<path d="M12 2 C15 8 18 10 18 15 A6 6 0 0 1 6 15 C6 11 9 9 9.5 6 C10.5 8.5 12 8 12 2 Z" fill="url(#flameg)"/>`;
+  c += `<path d="M12 8 C13.5 11 15 12.5 15 15 A3 3 0 0 1 9 15 C9 13 10.5 12 11 10 C11.5 11.5 12 11 12 8 Z" fill="#ffe0b0" opacity="0.92"/>`;
+  c += `</g></g>`;
+  c += `<text class="mono" x="${fcx}" y="${y + 96}" text-anchor="middle" font-size="10" fill="#a98a8e" letter-spacing="2">CURRENT · DAYS</text>`;
+  c += row(rx, rw, y + 118, 'longest streak', lon + 'd');
+  c += row(rx, rw, y + 140, 'contributions (1y)', nf(contrib));
   y += 156;
   c += sep('activity', y); y += 18;
   const series = weeks.map(w => w.contributionDays.reduce((a, b) => a + b.contributionCount, 0));
