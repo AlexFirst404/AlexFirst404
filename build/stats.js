@@ -103,8 +103,16 @@ function buildBottom(d) {
   c += `<text class="mono" x="${W / 2}" y="${y}" text-anchor="middle" font-size="12" fill="#7a4a4f">// signal lost — connection terminated <tspan class="cur" fill="#e0143c">▮</tspan></text>`;
   const H = Math.ceil(y + 16);
   const b = bg(H);
-  fs.writeFileSync(A + 'bottom.svg', `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="stats, activity and contacts"><defs><style>${CSS}</style>${b.defs}</defs>${b.body}${c}</svg>`);
-  console.log(`bottom.svg: commits ${commits}, prs ${prs}, stars ${stars}, repos ${repos}, streak ${cur}/${lon}, contrib ${contrib}`);
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="stats, activity and contacts"><defs><style>${CSS}</style>${b.defs}</defs>${b.body}${c}</svg>`;
+  fs.writeFileSync(A + 'bottom.svg', svg);
+  // Bust GitHub's image (camo) cache: bump ?v=<hash> on the README <img> whenever the SVG changes.
+  const v = require('crypto').createHash('md5').update(svg).digest('hex').slice(0, 8);
+  try {
+    const rd = fs.readFileSync('README.md', 'utf8');
+    const rd2 = rd.replace(/assets\/bottom\.svg(\?v=[a-z0-9]+)?/g, `assets/bottom.svg?v=${v}`);
+    if (rd2 !== rd) fs.writeFileSync('README.md', rd2);
+  } catch (e) { /* README optional */ }
+  console.log(`bottom.svg: commits ${commits}, prs ${prs}, stars ${stars}, repos ${repos}, streak ${cur}/${lon}, contrib ${contrib}, v=${v}`);
 }
 
 const QUERY = `query($login:String!){ user(login:$login){ contributionsCollection{ totalCommitContributions restrictedContributionsCount totalPullRequestContributions contributionCalendar{ totalContributions weeks{ contributionDays{ date contributionCount } } } } repositories(first:100, ownerAffiliations:OWNER, isFork:false){ totalCount nodes{ stargazerCount } } } }`;
