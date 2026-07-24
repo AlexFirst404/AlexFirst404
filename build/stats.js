@@ -69,12 +69,12 @@ function buildBottom(d) {
   c += row(PADX, midX - PADX - 20, y + 92, 'stars earned', nf(stars));
   c += row(PADX, midX - PADX - 20, y + 118, 'repositories', nf(repos));
   const rx = midX + 30, rw = W - PADX - rx, fcx = rx + rw / 2, fs2 = 4.8;
-  c += `<defs><linearGradient id="flameg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb04d"/><stop offset="0.5" stop-color="#ff4d2e"/><stop offset="1" stop-color="#c8102a"/></linearGradient></defs>`;
+  c += `<defs><linearGradient id="flameg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb04d"/><stop offset="0.5" stop-color="#ff4d2e"/><stop offset="1" stop-color="#c8102a"/></linearGradient><linearGradient id="numg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050203"/><stop offset="1" stop-color="#3a0810"/></linearGradient></defs>`;
   c += `<text class="mono" x="${rx}" y="${y + 10}" font-size="13" fill="#e6cfd0"><tspan fill="#e0143c">◆ </tspan>contribution streak</text>`;
   c += `<g transform="translate(${(fcx - 12 * fs2).toFixed(1)},${y + 12}) scale(${fs2})"><g class="flame">`;
   c += `<path d="M12 2 C15 8 18 10 18 15 A6 6 0 0 1 6 15 C6 11 9 9 9.5 6 C10.5 8.5 12 8 12 2 Z" fill="url(#flameg)"/>`;
   c += `<path d="M12 8 C13.5 11 15 12.5 15 15 A3 3 0 0 1 9 15 C9 13 10.5 12 11 10 C11.5 11.5 12 11 12 8 Z" fill="#ffe0b0" opacity="0.9"/>`;
-  c += `<text class="mono" x="12" y="16.2" text-anchor="middle" font-size="7.2" font-weight="bold" fill="#ffffff">${cur}</text>`;
+  c += `<text class="mono" x="12" y="17" text-anchor="middle" font-size="6.4" font-weight="bold" fill="url(#numg)">${cur}</text>`;
   c += `</g></g>`;
   c += `<text class="mono" x="${fcx}" y="${y + 128}" text-anchor="middle" font-size="10" fill="#a98a8e" letter-spacing="2">CURRENT · DAYS</text>`;
   c += row(rx, rw, y + 148, 'longest streak', lon + 'd');
