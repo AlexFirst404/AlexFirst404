@@ -74,7 +74,7 @@ function buildBottom(d) {
   c += `<g transform="translate(${(fcx - 12 * fs2).toFixed(1)},${y + 12}) scale(${fs2})"><g class="flame">`;
   c += `<path d="M12 2 C15 8 18 10 18 15 A6 6 0 0 1 6 15 C6 11 9 9 9.5 6 C10.5 8.5 12 8 12 2 Z" fill="url(#flameg)"/>`;
   c += `<path d="M12 8 C13.5 11 15 12.5 15 15 A3 3 0 0 1 9 15 C9 13 10.5 12 11 10 C11.5 11.5 12 11 12 8 Z" fill="#ffe0b0" opacity="0.9"/>`;
-  c += `<text class="mono" x="12" y="17.8" text-anchor="middle" font-size="7.2" font-weight="bold" fill="#1a0508">${cur}</text>`;
+  c += `<text class="mono" x="12" y="16.2" text-anchor="middle" font-size="7.2" font-weight="bold" fill="#ffffff">${cur}</text>`;
   c += `</g></g>`;
   c += `<text class="mono" x="${fcx}" y="${y + 128}" text-anchor="middle" font-size="10" fill="#a98a8e" letter-spacing="2">CURRENT · DAYS</text>`;
   c += row(rx, rw, y + 148, 'longest streak', lon + 'd');
