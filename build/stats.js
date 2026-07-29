@@ -37,8 +37,6 @@ function bg(H) {
 }
 const CSS = `
 .mono{font-family:${FF}}
-.nm{font-family:'UF',serif}
-${nameFontFace()}
 .cur{animation:cur 1.05s steps(1) infinite}
 .gb{opacity:0}.g1{animation:g1 8.5s infinite steps(1)}.g2{animation:g2 11s infinite steps(1)}.g3{animation:g3 13s infinite steps(1)}
 .flame{transform-origin:12px 21px;animation:flick 1.7s ease-in-out infinite}
@@ -90,9 +88,9 @@ function buildBottom(d) {
   // Shrink the digits as the streak grows so they always fit inside the flame,
   // and lift the narrower multi-digit ones a touch higher into the flame body.
   const nDigits = String(cur).length;
-  const numFS = nDigits >= 3 ? 4.0 : nDigits === 2 ? 5.2 : 7.6;
+  const numFS = nDigits >= 3 ? 3.3 : nDigits === 2 ? 4.3 : 6.4;
   const numY = nDigits >= 3 ? 15.6 : nDigits === 2 ? 15.9 : 17;
-  c += `<text class="nm" x="12" y="${numY}" text-anchor="middle" font-size="${numFS}" fill="url(#numg)">${cur}</text>`;
+  c += `<text class="mono" x="12" y="${numY}" text-anchor="middle" font-size="${numFS}" font-weight="bold" fill="url(#numg)">${cur}</text>`;
   c += `</g></g>`;
   c += `<text class="mono" x="${fcx}" y="${y + 128}" text-anchor="middle" font-size="10" fill="#a98a8e" letter-spacing="2">CURRENT · DAYS</text>`;
   c += row(rx, rw, y + 148, 'longest streak', lon + 'd');
