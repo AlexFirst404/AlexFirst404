@@ -5,6 +5,17 @@ const LOGIN = 'AlexFirst404';
 const A = 'assets/';
 const W = 860, PADX = 24, FF = "ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace";
 
+// Same blackletter face as the nickname in top.svg — reused for the streak digits.
+function nameFontFace() {
+  for (const f of ['assets/top.svg', 'assets/hero.svg']) {
+    try {
+      const m = fs.readFileSync(f, 'utf8').match(/@font-face\{[^}]*\}/);
+      if (m) return m[0];
+    } catch (e) { /* try next */ }
+  }
+  return '';
+}
+
 function bg(H) {
   return {
     defs: `
@@ -26,6 +37,8 @@ function bg(H) {
 }
 const CSS = `
 .mono{font-family:${FF}}
+.nm{font-family:'UF',serif}
+${nameFontFace()}
 .cur{animation:cur 1.05s steps(1) infinite}
 .gb{opacity:0}.g1{animation:g1 8.5s infinite steps(1)}.g2{animation:g2 11s infinite steps(1)}.g3{animation:g3 13s infinite steps(1)}
 .flame{transform-origin:12px 21px;animation:flick 1.7s ease-in-out infinite}
@@ -74,10 +87,12 @@ function buildBottom(d) {
   c += `<g transform="translate(${(fcx - 12 * fs2).toFixed(1)},${y + 12}) scale(${fs2})"><g class="flame">`;
   c += `<path d="M12 2 C15 8 18 10 18 15 A6 6 0 0 1 6 15 C6 11 9 9 9.5 6 C10.5 8.5 12 8 12 2 Z" fill="url(#flameg)"/>`;
   c += `<path d="M12 8 C13.5 11 15 12.5 15 15 A3 3 0 0 1 9 15 C9 13 10.5 12 11 10 C11.5 11.5 12 11 12 8 Z" fill="#ffe0b0" opacity="0.9"/>`;
-  // Shrink the digits as the streak grows so they always fit inside the flame.
+  // Shrink the digits as the streak grows so they always fit inside the flame,
+  // and lift the narrower multi-digit ones a touch higher into the flame body.
   const nDigits = String(cur).length;
-  const numFS = nDigits >= 3 ? 3.3 : nDigits === 2 ? 4.3 : 6.4;
-  c += `<text class="mono" x="12" y="17" text-anchor="middle" font-size="${numFS}" font-weight="bold" fill="url(#numg)">${cur}</text>`;
+  const numFS = nDigits >= 3 ? 4.0 : nDigits === 2 ? 5.2 : 7.6;
+  const numY = nDigits >= 3 ? 15.6 : nDigits === 2 ? 15.9 : 17;
+  c += `<text class="nm" x="12" y="${numY}" text-anchor="middle" font-size="${numFS}" fill="url(#numg)">${cur}</text>`;
   c += `</g></g>`;
   c += `<text class="mono" x="${fcx}" y="${y + 128}" text-anchor="middle" font-size="10" fill="#a98a8e" letter-spacing="2">CURRENT · DAYS</text>`;
   c += row(rx, rw, y + 148, 'longest streak', lon + 'd');
