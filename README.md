@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/top.svg?v=b16678ee" width="100%" alt="AlexFirst404 — whoami and tech arsenal" />
+<img src="assets/top.svg?v=4de78609" width="100%" alt="AlexFirst404 — whoami and tech arsenal" />
 
 </div>
 
@@ -17,6 +17,6 @@ Anti-censorship VPN — Anti-jumming servers, desktop &amp; mobile clients, fast
 
 <div align="center">
 
-<img src="assets/bottom.svg?v=2d78f315" width="100%" alt="stats, activity and contacts" />
+<img src="assets/bottom.svg?v=0889b383" width="100%" alt="stats, activity and contacts" />
 
 </div>

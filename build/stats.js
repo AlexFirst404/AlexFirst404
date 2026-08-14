@@ -58,7 +58,7 @@ function sep(label, y) {
   s += `<line x1="${rs.toFixed(1)}" y1="${cy}" x2="${xR - 15}" y2="${cy}" stroke="#8b0a20" stroke-width="1.4"/>`;
   s += `<rect x="${(le - 3).toFixed(1)}" y="${cy - 3}" width="6" height="6" fill="#e0143c" transform="rotate(45 ${le.toFixed(1)} ${cy})"/>`;
   s += `<rect x="${(rs - 3).toFixed(1)}" y="${cy - 3}" width="6" height="6" fill="#e0143c" transform="rotate(45 ${rs.toFixed(1)} ${cy})"/>`;
-  s += `<text class="mono" x="${cx}" y="${cy + 4}" text-anchor="middle" font-size="12" letter-spacing="2.5" fill="#e0143c">${L}</text>`;
+  s += `<text class="mono" x="${cx}" y="${cy + 4}" text-anchor="middle" font-size="12" font-weight="bold" letter-spacing="2.5" fill="#e0143c">${L}</text>`;
   return s;
 }
 
