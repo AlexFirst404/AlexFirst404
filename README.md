@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/top.svg" width="100%" alt="AlexFirst404 — whoami and tech arsenal" />
+<img src="assets/top.svg?v=b16678ee" width="100%" alt="AlexFirst404 — whoami and tech arsenal" />
 
 </div>
 
