@@ -17,6 +17,6 @@ Anti-censorship VPN — Anti-jumming servers, desktop &amp; mobile clients, fast
 
 <div align="center">
 
-<img src="assets/bottom.svg?v=7bc26aae" width="100%" alt="stats, activity and contacts" />
+<img src="assets/bottom.svg?v=e7b1ef67" width="100%" alt="stats, activity and contacts" />
 
 </div>
