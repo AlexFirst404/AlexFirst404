@@ -8,7 +8,6 @@
 <tr>
 <td width="80" align="center"><img src="assets/undernet-logo.png" width="60" alt="UnderNet" /></td>
 <td>
-<b><a href="https://undernetvpn.com">UnderNet VPN</a></b>
 <br>
 </td>
 </tr>
