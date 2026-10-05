@@ -4,14 +4,7 @@
 
 </div>
 
-<table>
-<tr>
-<td width="80" align="center"><img src="assets/undernet-logo.png" width="60" alt="UnderNet" /></td>
-<td>
-<br>
-</td>
-</tr>
-</table>
+
 
 <div align="center">
 
