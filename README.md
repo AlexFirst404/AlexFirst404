@@ -10,7 +10,6 @@
 <td>
 <b><a href="https://undernetvpn.com">UnderNet VPN</a></b>
 <br>
-Anti-censorship VPN — Anti-jumming servers, desktop &amp; mobile clients, fast and security. → <a href="https://undernetvpn.com">undernetvpn.com</a>
 </td>
 </tr>
 </table>
