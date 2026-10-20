@@ -8,6 +8,6 @@
 
 <div align="center">
 
-<img src="assets/bottom.svg?v=aa24ffa8" width="100%" alt="stats, activity and contacts" />
+<img src="assets/bottom.svg?v=f4421d4f" width="100%" alt="stats, activity and contacts" />
 
 </div>
