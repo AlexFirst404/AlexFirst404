@@ -1,13 +1,5 @@
 <div align="center">
 
-<img src="assets/top.svg?v=4de78609" width="100%" alt="AlexFirst404 — whoami and tech arsenal" />
-
-</div>
-
-
-
-<div align="center">
-
-<img src="assets/bottom.svg?v=8c0d18b5" width="100%" alt="stats, activity and contacts" />
+<img src="assets/profile.svg?v=05c6a955" width="100%" alt="AlexFirst404: turnkey apps, bots and websites. Streak, stack and activity." />
 
 </div>

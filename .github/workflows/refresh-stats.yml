@@ -30,16 +30,16 @@ jobs:
             echo "::warning::STATS_TOKEN secret is not set — skipping so public-only numbers don't overwrite the current stats. Add a PAT secret named STATS_TOKEN to enable auto-refresh."
           fi
 
-      - name: Rebuild and commit bottom.svg
+      - name: Rebuild and commit the profile card
         if: env.STATS_TOKEN != ''
         run: |
           node build/stats.js
-          if git diff --quiet -- assets/bottom.svg; then
+          if git diff --quiet -- assets README.md; then
             echo "No change in stats."
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add assets/bottom.svg
+            git add -A -- assets README.md
             git commit -m "chore: refresh contribution stats [skip ci]"
             git push
           fi
