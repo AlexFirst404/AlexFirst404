@@ -251,13 +251,17 @@ function frame(H, inner, aria) {
 // clipped to the card shapes and drifting in step with the real one, so the silk
 // shows through each card without an SVG blur filter re-running every frame.
 
-const cardPath = (x, y, w, h, c = 14) => `M${x} ${y}H${x + w - c}L${x + w} ${y + c}V${y + h}H${x}Z`;
+const cardPath = (x, y, w, h, r = 10) =>
+  `M${x + r} ${y}H${x + w - r}A${r} ${r} 0 0 1 ${x + w} ${y + r}V${y + h - r}A${r} ${r} 0 0 1 ${x + w - r} ${y + h}`
+  + `H${x + r}A${r} ${r} 0 0 1 ${x} ${y + h - r}V${y + r}A${r} ${r} 0 0 1 ${x + r} ${y}Z`;
 
-/** Small deterministic hash, so the constellation keeps its shape between runs. */
-function hash01(str, salt) {
-  let h = 2166136261 ^ salt;
-  for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
-  return ((h >>> 0) % 10000) / 10000;
+// Four-point sparkle with concave sides (the Gemini-mark silhouette), unit radius.
+const SPARK = 'M0 -1C.08 -.3 .3 -.08 1 0C.3 .08 .08 .3 0 1C-.08 .3 -.3 .08 -1 0C-.3 -.08 -.08 -.3 0 -1Z';
+
+/** Seeded PRNG, so the star field keeps its layout between daily rebuilds. */
+function rng(seed) {
+  let t = seed >>> 0;
+  return () => { t = (t + 0x6D2B79F5) >>> 0; let r = Math.imul(t ^ (t >>> 15), 1 | t); r ^= r + Math.imul(r ^ (r >>> 7), 61 | r); return ((r ^ (r >>> 14)) >>> 0) / 4294967296; };
 }
 
 function cardLabel(x, y, glyph, text, right) {
@@ -269,15 +273,14 @@ function cardLabel(x, y, glyph, text, right) {
 function readout(d, y) {
   const n = 4, gap = 12, ch = 112, cw = (W - PX * 2 - gap * (n - 1)) / n;
   const xs = [...Array(n)].map((_, i) => PX + i * (cw + gap));
-  let s = `<defs><clipPath id="glasscut">${xs.map(x => `<path d="${cardPath(x, y, cw, ch)}"/>`).join('')}</clipPath></defs>`;
+  let s = `<defs><clipPath id="glasscut">${xs.map(x => `<path d="${cardPath(x, y, cw, ch)}"/>`).join('')}</clipPath><path id="spark" d="${SPARK}"/></defs>`;
   if (FROST) {
     s += `<g clip-path="url(#glasscut)"><image class="wp" href="${FROST}" x="0" y="0" width="${W}" height="${d.H}" preserveAspectRatio="xMidYMid slice"/></g>`;
   }
   xs.forEach(x => {
     s += `<path d="${cardPath(x, y, cw, ch)}" fill="url(#glass)"/>`;
-    s += `<line x1="${x + 1}" y1="${y + 0.75}" x2="${x + cw - 15}" y2="${y + 0.75}" stroke="#ffd9df" stroke-opacity="0.16"/>`;
+    s += `<line x1="${x + 10}" y1="${y + 0.75}" x2="${x + cw - 10}" y2="${y + 0.75}" stroke="#ffd9df" stroke-opacity="0.18"/>`;
     s += `<path d="${cardPath(x, y, cw, ch)}" fill="none" stroke="${C.accent}" stroke-opacity="0.32"/>`;
-    s += `<path d="M${x + cw - 14} ${y}L${x + cw} ${y + 14}" stroke="${C.accent}" stroke-width="1.6"/>`;
   });
   const L = 14, LY = y + 24, NY = y + 62, VY = y + 72, CY = y + 103;
   const caption = (x, t) => `<text class="mono" x="${x + L}" y="${CY}" font-size="10" fill="${C.muted}">${t}</text>`;
@@ -333,30 +336,32 @@ function readout(d, y) {
   // 4 · stars: every starred repo is a star, sized by its count, joined up
   {
     const x = xs[3];
-    s += cardLabel(x + L, LY, `<path d="M${x + L + 4} ${LY - 9}l1.2 3.2 3.4.2-2.6 2.1.9 3.3-2.9-1.9-2.9 1.9.9-3.3-2.6-2.1 3.4-.2z" fill="${C.accent}"/>`, 'STARS');
+    s += cardLabel(x + L, LY, `<use href="#spark" transform="translate(${x + L + 4} ${LY - 4}) scale(5.2)" fill="${C.accent}"/>`, 'STARS');
     s += big(x, nf(d.starsTotal));
-    const starred = d.repoList.filter(rp => rp.stars > 0).sort((a, b) => a.name.localeCompare(b.name));
-    // A jittered grid instead of free placement: with ~40 starred repos, free
-    // positions clumped into one pink blob in the corner.
-    const bx = x + 74, bw = cw - 74 - 14, by = y + 30, bh = 60;
-    const cols = Math.max(1, Math.ceil(Math.sqrt(starred.length * bw / bh))), rowsN = Math.max(1, Math.ceil(starred.length / cols));
-    const pts = starred.map((rp, i) => ({
-      x: bx + ((i % cols) + 0.15 + 0.7 * hash01(rp.name, 7)) * (bw / cols),
-      y: by + (Math.floor(i / cols) + 0.15 + 0.7 * hash01(rp.name, 13)) * (bh / rowsN),
-      n: rp.stars, h: hash01(rp.name, 29),
-    }));
-    // the brightest few form the constellation, the rest stay a faint field
-    const lead = [...pts].sort((a, b) => (b.n - a.n) || (b.h - a.h)).slice(0, Math.min(6, pts.length)).sort((a, b) => a.x - b.x);
-    pts.filter(p => !lead.includes(p)).forEach(p => {
-      s += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${(0.75 + Math.sqrt(p.n) * 0.35).toFixed(2)}" fill="#ffd3da" opacity="0.42"/>`;
+    // One sparkle per starred repo, scattered at random sizes. Placement is
+    // rejection-sampled from a seeded generator: random-looking, never
+    // overlapping, and identical on every rebuild so the card does not jump.
+    const starred = d.repoList.filter(rp => rp.stars > 0);
+    const bx = x + 70, bw = cw - 70 - 10, by = y + 28, bh = 66;
+    const rand = rng(404);
+    const placed = [];
+    starred.forEach(() => {
+      const u = rand();
+      const r = 1.6 + 5.2 * u * u * u;               // mostly tiny, a few large
+      for (let t = 0; t < 60; t++) {
+        const px = bx + r + rand() * (bw - 2 * r), py = by + r + rand() * (bh - 2 * r);
+        if (placed.every(p => Math.hypot(p.x - px, p.y - py) > (p.r + r) * 0.95 + 2)) {
+          placed.push({ x: px, y: py, r, o: 0.45 + 0.55 * rand() });
+          break;
+        }
+      }
     });
-    for (let i = 1; i < lead.length; i++) {
-      s += `<line x1="${lead[i - 1].x.toFixed(1)}" y1="${lead[i - 1].y.toFixed(1)}" x2="${lead[i].x.toFixed(1)}" y2="${lead[i].y.toFixed(1)}" stroke="${C.accent}" stroke-opacity="0.5" stroke-width="0.9"/>`;
-    }
-    lead.forEach((p, i) => {
-      const r = 1.5 + Math.sqrt(p.n) * 0.5;
-      s += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${(r * 2.4).toFixed(1)}" fill="${C.accent}" opacity="0.4" filter="url(#starglow)"/>`;
-      s += `<circle${i === 0 ? ' class="pulse"' : ''} cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r.toFixed(1)}" fill="#fff0f2"/>`;
+    placed.forEach((p, i) => {
+      const at = `translate(${p.x.toFixed(1)} ${p.y.toFixed(1)}) scale(${p.r.toFixed(2)})`;
+      if (p.r > 3.4) s += `<use href="#spark" transform="${at} scale(1.9)" fill="${C.accent}" opacity="0.45" filter="url(#starglow)"/>`;
+      // a handful twinkle, each on its own offset so they never pulse in unison
+      const tw = i % 7 === 0 ? ` class="pulse" style="animation-delay:-${(rand() * 1.8).toFixed(2)}s"` : '';
+      s += `<use href="#spark" transform="${at}" fill="#fff0f2" opacity="${p.o.toFixed(2)}"${tw}/>`;
     });
     s += caption(x, `across ${starred.length} repos`);
   }
