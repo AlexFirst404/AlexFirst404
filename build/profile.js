@@ -186,6 +186,11 @@ function signoff(cx, y) {
 }
 
 // ---------------------------------------------------------------- frame
+// The wallpaper drift (.wp) is a pan at a constant 1.08 zoom with a hair of rotation.
+// Firefox snaps a slow axis-aligned move to whole pixels (still frames, then a jump),
+// and the rotation keeps it on the smooth filtered path; a changing zoom made Firefox
+// re-decode the JPEG at each new size and pop every few frames. The 8% overscan covers
+// the pan, so the image edge never shows.
 function defs(H) {
   return `<style>
 .mono{font-family:${FF}}.nm{font-family:'UF',serif}
@@ -196,8 +201,8 @@ function defs(H) {
 .flame{transform-origin:12px 21px;animation:flick 1.7s ease-in-out infinite}
 .gb{opacity:0}.g1{animation:g1 8.5s infinite steps(1)}.g2{animation:g2 11s infinite steps(1)}.g3{animation:g3 13s infinite steps(1)}
 .sweep{animation:sweep 9s linear infinite}
-.wp{transform-box:fill-box;transform-origin:50% 40%;animation:drift 28s ease-in-out infinite alternate}
-@keyframes drift{from{transform:scale(1)}to{transform:scale(1.07) translate(-1%,.8%)}}
+.wp{transform-box:fill-box;transform-origin:50% 40%;animation:drift 22s ease-in-out infinite alternate}
+@keyframes drift{from{transform:scale(1.08) translate(1.8%,-1.1%) rotate(.01deg)}to{transform:scale(1.08) translate(-1.8%,1.1%) rotate(.03deg)}}
 @keyframes gl{0%,89%,100%{opacity:1}90%{opacity:.6}91%{opacity:1}95%{opacity:.82}96%{opacity:1}}
 @keyframes rdA{0%,86%,100%{opacity:0}87%{opacity:.7;transform:translate(4px,2px)}90%{opacity:0}93%{opacity:.55;transform:translate(-3px,-2px)}94%{opacity:0}}
 @keyframes cyA{0%,88%,100%{opacity:0}89%{opacity:.6;transform:translate(-4px,-2px)}91%{opacity:0}94%{opacity:.5;transform:translate(3px,2px)}95%{opacity:0}}
