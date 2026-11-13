@@ -44,6 +44,12 @@ const WALLPAPER = (() => {
   try { return 'data:image/jpeg;base64,' + fs.readFileSync(path.join(RES, 'wallpaper.jpg')).toString('base64'); }
   catch (e) { return null; }
 })();
+// small pre-blurred copy of the wallpaper, shown through the glass cards
+const FROST = (() => {
+  if (!WALLPAPER) return null;
+  try { return 'data:image/jpeg;base64,' + fs.readFileSync(path.join(RES, 'wallpaper-frost.jpg')).toString('base64'); }
+  catch (e) { return null; }
+})();
 const ARSENAL = JSON.parse(fs.readFileSync(path.join(RES, 'arsenal.json'), 'utf8'));
 const EXTRA = JSON.parse(fs.readFileSync(path.join(RES, 'extra-icons.json'), 'utf8'));
 
@@ -214,6 +220,8 @@ ${NAME_FONT}</style>
 <linearGradient id="numg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050203"/><stop offset="1" stop-color="#3a0810"/></linearGradient>
 <linearGradient id="afill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${C.accent}" stop-opacity="0.32"/><stop offset="1" stop-color="${C.accent}" stop-opacity="0.02"/></linearGradient>
 <linearGradient id="scrim" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c0205" stop-opacity="0.18"/><stop offset="0.24" stop-color="#0c0205" stop-opacity="0.42"/><stop offset="0.5" stop-color="#0c0205" stop-opacity="0.7"/><stop offset="1" stop-color="#0c0205" stop-opacity="0.78"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e080d" stop-opacity="0.42"/><stop offset="1" stop-color="#0c0205" stop-opacity="0.78"/></linearGradient>
+<filter id="starglow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="1.8"/></filter>
 <linearGradient id="sweepg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${C.accent}" stop-opacity="0"/><stop offset="0.5" stop-color="${C.accent}" stop-opacity="0.05"/><stop offset="1" stop-color="${C.accent}" stop-opacity="0"/></linearGradient>
 <pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0 H26 M0 0 V26" stroke="${C.accent}" stroke-width="0.7" fill="none" opacity="0.06"/></pattern>
 <pattern id="scan" width="4" height="3" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#000" opacity="0.22"/></pattern>
@@ -238,6 +246,123 @@ function frame(H, inner, aria) {
 // ---------------------------------------------------------------- layouts
 
 
+// ---------------------------------------------------------------- readout strip
+// Four glass cards. The frosted look is a pre-blurred copy of the wallpaper,
+// clipped to the card shapes and drifting in step with the real one, so the silk
+// shows through each card without an SVG blur filter re-running every frame.
+
+const cardPath = (x, y, w, h, c = 14) => `M${x} ${y}H${x + w - c}L${x + w} ${y + c}V${y + h}H${x}Z`;
+
+/** Small deterministic hash, so the constellation keeps its shape between runs. */
+function hash01(str, salt) {
+  let h = 2166136261 ^ salt;
+  for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return ((h >>> 0) % 10000) / 10000;
+}
+
+function cardLabel(x, y, glyph, text, right) {
+  let s = glyph + `<text class="mono" x="${x + 16}" y="${y}" font-size="10" font-weight="bold" letter-spacing="2" fill="${C.accent}">${text}</text>`;
+  if (right) s += `<text class="mono" x="${right.x}" y="${y}" text-anchor="end" font-size="9.5" letter-spacing="1.5" fill="${C.faint}">${right.t}</text>`;
+  return s;
+}
+
+function readout(d, y) {
+  const n = 4, gap = 12, ch = 112, cw = (W - PX * 2 - gap * (n - 1)) / n;
+  const xs = [...Array(n)].map((_, i) => PX + i * (cw + gap));
+  let s = `<defs><clipPath id="glasscut">${xs.map(x => `<path d="${cardPath(x, y, cw, ch)}"/>`).join('')}</clipPath></defs>`;
+  if (FROST) {
+    s += `<g clip-path="url(#glasscut)"><image class="wp" href="${FROST}" x="0" y="0" width="${W}" height="${d.H}" preserveAspectRatio="xMidYMid slice"/></g>`;
+  }
+  xs.forEach(x => {
+    s += `<path d="${cardPath(x, y, cw, ch)}" fill="url(#glass)"/>`;
+    s += `<line x1="${x + 1}" y1="${y + 0.75}" x2="${x + cw - 15}" y2="${y + 0.75}" stroke="#ffd9df" stroke-opacity="0.16"/>`;
+    s += `<path d="${cardPath(x, y, cw, ch)}" fill="none" stroke="${C.accent}" stroke-opacity="0.32"/>`;
+    s += `<path d="M${x + cw - 14} ${y}L${x + cw} ${y + 14}" stroke="${C.accent}" stroke-width="1.6"/>`;
+  });
+  const L = 14, LY = y + 24, NY = y + 62, VY = y + 72, CY = y + 103;
+  const caption = (x, t) => `<text class="mono" x="${x + L}" y="${CY}" font-size="10" fill="${C.muted}">${t}</text>`;
+  const big = (x, v, fill = C.text) => `<text class="mono" x="${x + L}" y="${NY}" font-size="30" font-weight="bold" fill="${fill}">${v}</text>`;
+
+  // 1 · streak: glowing count, flame, the last 14 days as tiles
+  {
+    const x = xs[0], v = String(d.streak);
+    s += cardLabel(x + L, LY, `<circle class="pulse" cx="${x + L + 4}" cy="${LY - 3.5}" r="3.2" fill="${C.ember}"/>`, 'STREAK');
+    s += `<text class="mono" x="${x + L}" y="${NY}" font-size="30" font-weight="bold" fill="${C.ember}" opacity="0.6" filter="url(#ng)">${v}</text>`;
+    s += big(x, v, C.ember);
+    s += `<text class="mono" x="${x + L + v.length * 18 + 5}" y="${NY}" font-size="11" fill="${C.muted}">days</text>`;
+    s += flame(x + cw - 30, y + 14, 2.2, d.streak);
+    const last = d.days.slice(-14), T = 9, G = 3;
+    last.forEach((day, i) => {
+      const tx = x + L + i * (T + G), lit = day.contributionCount > 0, today = i === last.length - 1;
+      s += `<rect x="${tx}" y="${VY + 6}" width="${T}" height="${T}" rx="2" fill="${lit ? (day.contributionCount > 20 ? C.accent : '#a50e2a') : C.line}"${today ? ` stroke="${C.ember}" stroke-width="1.4"` : ''}/>`;
+    });
+    s += caption(x, `record ${d.longest}d · today +${d.todayCount}`);
+  }
+
+  // 2 · contributions: number plus a 26-week sparkline
+  {
+    const x = xs[1];
+    s += cardLabel(x + L, LY, `<rect x="${x + L + 1}" y="${LY - 7}" width="6" height="6" fill="${C.accent}" transform="rotate(45 ${x + L + 4} ${LY - 4})"/>`, 'CONTRIB', { x: x + cw - 22, t: '1Y' });
+    s += big(x, nf(d.contrib));
+    const wk = d.weeks.slice(-26).map(w => w.contributionDays.reduce((a, b) => a + b.contributionCount, 0));
+    const max = Math.max(1, ...wk), x0 = x + L, x1 = x + cw - L, y0 = VY + 2, y1 = VY + 22;
+    const px = k => x0 + (x1 - x0) * (k / (wk.length - 1)), py = v2 => y1 - (y1 - y0) * (v2 / max);
+    let ln = '', ar = `M${x0} ${y1} `;
+    wk.forEach((v2, k) => { ln += (k ? 'L' : 'M') + px(k).toFixed(1) + ' ' + py(v2).toFixed(1) + ' '; ar += `L${px(k).toFixed(1)} ${py(v2).toFixed(1)} `; });
+    ar += `L${x1} ${y1} Z`;
+    s += `<path d="${ar}" fill="url(#afill)"/><path d="${ln}" fill="none" stroke="${C.accent}" stroke-width="1.4" stroke-linejoin="round"/>`;
+    s += `<circle class="pulse" cx="${px(wk.length - 1).toFixed(1)}" cy="${py(wk[wk.length - 1]).toFixed(1)}" r="2.6" fill="${C.ember}"/>`;
+    s += caption(x, `peak ${max} a week · 6 months`);
+  }
+
+  // 3 · repositories: one dot per repo, public bright, private dim
+  {
+    const x = xs[2];
+    s += cardLabel(x + L, LY, `<rect x="${x + L}" y="${LY - 8}" width="8" height="8" rx="1.5" fill="none" stroke="${C.accent}" stroke-width="1.6"/>`, 'REPOS');
+    s += big(x, nf(d.repos));
+    const list = [...d.repoList].sort((a, b) => (a.private - b.private) || (b.stars - a.stars));
+    const rows = 2, cols = Math.ceil(list.length / rows), step = (cw - L * 2) / cols, r = Math.min(2, step * 0.36);
+    list.forEach((rp, i) => {
+      const cx = x + L + step * (i % cols) + step / 2, cy = VY + 9 + Math.floor(i / cols) * 9;
+      s += `<circle cx="${cx.toFixed(1)}" cy="${cy}" r="${r.toFixed(2)}" fill="${rp.private ? '#5e0716' : C.ember}"/>`;
+    });
+    const pub = list.filter(rp => !rp.private).length;
+    s += caption(x, `${pub} public · ${list.length - pub} private`);
+  }
+
+  // 4 · stars: every starred repo is a star, sized by its count, joined up
+  {
+    const x = xs[3];
+    s += cardLabel(x + L, LY, `<path d="M${x + L + 4} ${LY - 9}l1.2 3.2 3.4.2-2.6 2.1.9 3.3-2.9-1.9-2.9 1.9.9-3.3-2.6-2.1 3.4-.2z" fill="${C.accent}"/>`, 'STARS');
+    s += big(x, nf(d.starsTotal));
+    const starred = d.repoList.filter(rp => rp.stars > 0).sort((a, b) => a.name.localeCompare(b.name));
+    // A jittered grid instead of free placement: with ~40 starred repos, free
+    // positions clumped into one pink blob in the corner.
+    const bx = x + 74, bw = cw - 74 - 14, by = y + 30, bh = 60;
+    const cols = Math.max(1, Math.ceil(Math.sqrt(starred.length * bw / bh))), rowsN = Math.max(1, Math.ceil(starred.length / cols));
+    const pts = starred.map((rp, i) => ({
+      x: bx + ((i % cols) + 0.15 + 0.7 * hash01(rp.name, 7)) * (bw / cols),
+      y: by + (Math.floor(i / cols) + 0.15 + 0.7 * hash01(rp.name, 13)) * (bh / rowsN),
+      n: rp.stars, h: hash01(rp.name, 29),
+    }));
+    // the brightest few form the constellation, the rest stay a faint field
+    const lead = [...pts].sort((a, b) => (b.n - a.n) || (b.h - a.h)).slice(0, Math.min(6, pts.length)).sort((a, b) => a.x - b.x);
+    pts.filter(p => !lead.includes(p)).forEach(p => {
+      s += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${(0.75 + Math.sqrt(p.n) * 0.35).toFixed(2)}" fill="#ffd3da" opacity="0.42"/>`;
+    });
+    for (let i = 1; i < lead.length; i++) {
+      s += `<line x1="${lead[i - 1].x.toFixed(1)}" y1="${lead[i - 1].y.toFixed(1)}" x2="${lead[i].x.toFixed(1)}" y2="${lead[i].y.toFixed(1)}" stroke="${C.accent}" stroke-opacity="0.5" stroke-width="0.9"/>`;
+    }
+    lead.forEach((p, i) => {
+      const r = 1.5 + Math.sqrt(p.n) * 0.5;
+      s += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${(r * 2.4).toFixed(1)}" fill="${C.accent}" opacity="0.4" filter="url(#starglow)"/>`;
+      s += `<circle${i === 0 ? ' class="pulse"' : ''} cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r.toFixed(1)}" fill="#fff0f2"/>`;
+    });
+    s += caption(x, `across ${starred.length} repos`);
+  }
+  return { svg: s, h: ch };
+}
+
 // Terminal session: HUD frame round the name, readout strip, then commands.
 function build(d) {
   let s = '';
@@ -245,23 +370,9 @@ function build(d) {
   s += `<text class="mono" x="${PX + 12}" y="40" font-size="10" letter-spacing="2" fill="${C.muted}" ${HALO}>SIGNAL // 404</text>`;
   s += `<text class="mono" x="${W - PX - 12}" y="40" text-anchor="end" font-size="10" letter-spacing="2" fill="${C.muted}" ${HALO}>NODE ${LOGIN.toUpperCase()}</text>`;
   s += nameBlock(W / 2, 112, 92); s += tagline(W / 2, 152);
-  // readout strip
-  let y = 196;
-  const cells = [['STREAK', String(d.streak), `days · record ${d.longest}`], ['CONTRIB', nf(d.contrib), 'last year'], ['REPOS', nf(d.repos), 'owned'], ['STARS', nf(d.starsTotal), 'earned']];
-  const cw = (W - PX * 2 - 36) / 4;
-  cells.forEach(([k, v, sub], i) => {
-    const x = PX + i * (cw + 12);
-    s += `<rect x="${x}" y="${y}" width="${cw}" height="92" fill="${C.panel}" stroke="${C.line}"/>` + brackets(x, y, cw, 92, 9);
-    s += `<text class="mono" x="${x + 14}" y="${y + 22}" font-size="10" letter-spacing="2" fill="${C.accent}">${k}</text>`;
-    if (i === 0) {
-      s += flame(x + cw - 34, y + 10, 2.7, d.streak);
-      s += `<text class="mono" x="${x + 14}" y="${y + 62}" font-size="30" font-weight="bold" fill="${C.ember}">${v}</text>`;
-    } else {
-      s += `<text class="mono" x="${x + 14}" y="${y + 62}" font-size="${v.length > 5 ? 26 : 30}" font-weight="bold" fill="${C.text}">${v}</text>`;
-    }
-    s += `<text class="mono" x="${x + 14}" y="${y + 80}" font-size="10" fill="${C.faint}">${sub}</text>`;
-  });
-  y += 120;
+  const ro = readout(d, 196);
+  s += ro.svg;
+  let y = 196 + ro.h + 28;
   const prompt = (yy, cmd) => `<text class="mono" x="${PX}" y="${yy}" font-size="13"><tspan fill="${C.accent}" font-weight="bold">alex@404</tspan><tspan fill="${C.faint}">:</tspan><tspan fill="#ff8fa3">~</tspan><tspan fill="${C.faint}">$ </tspan><tspan fill="${C.text}">${cmd}</tspan></text>`;
   s += prompt(y, 'whoami'); s += whoami(PX, y + 26); y += 26 + WHOAMI.length * 21 + 14;
   s += prompt(y, 'ls ~/arsenal');
@@ -276,7 +387,7 @@ function build(d) {
 
 
 // ---------------------------------------------------------------- data
-const QUERY = `query($login:String!){ user(login:$login){ contributionsCollection{ totalCommitContributions restrictedContributionsCount totalPullRequestContributions contributionCalendar{ totalContributions weeks{ contributionDays{ date contributionCount } } } } repositories(first:100, ownerAffiliations:OWNER, isFork:false){ totalCount nodes{ name stargazerCount } } } }`;
+const QUERY = `query($login:String!){ user(login:$login){ contributionsCollection{ totalCommitContributions restrictedContributionsCount totalPullRequestContributions contributionCalendar{ totalContributions weeks{ contributionDays{ date contributionCount } } } } repositories(first:100, ownerAffiliations:OWNER, isFork:false){ totalCount nodes{ name stargazerCount isPrivate } } } }`;
 
 async function fetchData() {
   const token = process.env.STATS_TOKEN || process.env.GITHUB_TOKEN;
@@ -297,7 +408,9 @@ async function fetchData() {
   for (const dd of days) { if (dd.contributionCount > 0) { run++; if (run > longest) longest = run; } else run = 0; }
   const stars = {}; u.repositories.nodes.forEach(r => { stars[r.name] = r.stargazerCount; });
   return {
-    weeks, streak, longest, stars,
+    weeks, days, streak, longest, stars,
+    todayCount: days[days.length - 1].contributionCount,
+    repoList: u.repositories.nodes.map(r => ({ name: r.name, stars: r.stargazerCount, private: r.isPrivate })),
     commits: cc.totalCommitContributions + cc.restrictedContributionsCount,
     prs: cc.totalPullRequestContributions,
     contrib: cc.contributionCalendar.totalContributions,
@@ -309,7 +422,12 @@ async function fetchData() {
 (async () => {
   const arg = k => (process.argv.find(a => a.startsWith(`--${k}=`)) || '').split('=')[1];
   const d = await fetchData();
-  const svg = build(d);
+  // The glass cards place the blurred wallpaper with the card's final height, which
+  // is only known once the layout is built — so build, measure, and build again.
+  d.H = 900;
+  let svg = build(d);
+  const H = Number(svg.match(/viewBox="0 0 \d+ (\d+)"/)[1]);
+  if (H !== d.H) { d.H = H; svg = build(d); }
   const preview = arg('preview');
   if (preview) {
     fs.mkdirSync(preview, { recursive: true });
