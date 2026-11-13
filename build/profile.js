@@ -264,6 +264,12 @@ function rng(seed) {
   return () => { t = (t + 0x6D2B79F5) >>> 0; let r = Math.imul(t ^ (t >>> 15), 1 | t); r ^= r + Math.imul(r ^ (r >>> 7), 61 | r); return ((r ^ (r >>> 14)) >>> 0) / 4294967296; };
 }
 
+/** A 16px GitHub Octicon drawn at label size, sitting on the label's text line. */
+function octicon(name, x, y, fill, cls = '') {
+  const k = 0.7;                                       // 16px -> ~11px, the label's cap height
+  return `<g${cls ? ` class="${cls}"` : ''} transform="translate(${x} ${(y - 9.6).toFixed(1)}) scale(${k})" fill="${fill}"><path d="${EXTRA['octicon-' + name]}"/></g>`;
+}
+
 function cardLabel(x, y, glyph, text, right) {
   let s = glyph + `<text class="mono" x="${x + 16}" y="${y}" font-size="10" font-weight="bold" letter-spacing="2" fill="${C.accent}">${text}</text>`;
   if (right) s += `<text class="mono" x="${right.x}" y="${y}" text-anchor="end" font-size="9.5" letter-spacing="1.5" fill="${C.faint}">${right.t}</text>`;
@@ -289,7 +295,7 @@ function readout(d, y) {
   // 1 · streak: glowing count, flame, the last 14 days as tiles
   {
     const x = xs[0], v = String(d.streak);
-    s += cardLabel(x + L, LY, `<circle class="pulse" cx="${x + L + 4}" cy="${LY - 3.5}" r="3.2" fill="${C.ember}"/>`, 'STREAK');
+    s += cardLabel(x + L, LY, octicon('flame', x + L - 1, LY, C.ember, 'pulse'), 'STREAK');
     s += `<text class="mono" x="${x + L}" y="${NY}" font-size="30" font-weight="bold" fill="${C.ember}" opacity="0.6" filter="url(#ng)">${v}</text>`;
     s += big(x, v, C.ember);
     s += `<text class="mono" x="${x + L + v.length * 18 + 5}" y="${NY}" font-size="11" fill="${C.muted}">days</text>`;
@@ -305,7 +311,7 @@ function readout(d, y) {
   // 2 · contributions: number plus a 26-week sparkline
   {
     const x = xs[1];
-    s += cardLabel(x + L, LY, `<rect x="${x + L + 1}" y="${LY - 7}" width="6" height="6" fill="${C.accent}" transform="rotate(45 ${x + L + 4} ${LY - 4})"/>`, 'CONTRIB', { x: x + cw - 22, t: '1Y' });
+    s += cardLabel(x + L, LY, octicon('commit', x + L - 1, LY, C.accent), 'CONTRIB', { x: x + cw - 22, t: '1Y' });
     s += big(x, nf(d.contrib));
     const wk = d.weeks.slice(-26).map(w => w.contributionDays.reduce((a, b) => a + b.contributionCount, 0));
     const max = Math.max(1, ...wk), x0 = x + L, x1 = x + cw - L, y0 = VY + 2, y1 = VY + 22;
@@ -321,7 +327,7 @@ function readout(d, y) {
   // 3 · repositories: one dot per repo, public bright, private dim
   {
     const x = xs[2];
-    s += cardLabel(x + L, LY, `<rect x="${x + L}" y="${LY - 8}" width="8" height="8" rx="1.5" fill="none" stroke="${C.accent}" stroke-width="1.6"/>`, 'REPOS');
+    s += cardLabel(x + L, LY, octicon('repo', x + L - 1, LY, C.accent), 'REPOS');
     s += big(x, nf(d.repos));
     const list = [...d.repoList].sort((a, b) => (a.private - b.private) || (b.stars - a.stars));
     const rows = 2, cols = Math.ceil(list.length / rows), step = (cw - L * 2) / cols, r = Math.min(2, step * 0.36);
