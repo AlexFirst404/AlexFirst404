@@ -285,7 +285,6 @@ function readout(d, y) {
   }
   xs.forEach(x => {
     s += `<path d="${cardPath(x, y, cw, ch)}" fill="url(#glass)"/>`;
-    s += `<line x1="${x + 10}" y1="${y + 0.75}" x2="${x + cw - 10}" y2="${y + 0.75}" stroke="#ffd9df" stroke-opacity="0.18"/>`;
     s += `<path d="${cardPath(x, y, cw, ch)}" fill="none" stroke="${C.accent}" stroke-opacity="0.32"/>`;
   });
   const L = 14, LY = y + 24, NY = y + 62, VY = y + 72, CY = y + 103;
